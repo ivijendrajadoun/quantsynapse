@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple tools and practical resources for forex traders.">
+  <title>QuantSynapse | Smarter Forex Tools</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home">Quant<span>Synapse</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">CLEARER THINKING. BETTER PLANNING.</p>
+        <h1>Make your next trading decision with <span>more clarity.</span></h1>
+        <p class="intro">Straightforward forex tools to help you understand currency rates, estimate trade size, and plan risk before you trade.</p>
+        <a class="primary-button" href="#tools">Explore the tools <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-card" aria-label="Example trading risk summary">
+        <div class="card-top"><span class="status-dot"></span> TRADE PLAN</div>
+        <p class="muted">Example risk-to-reward</p>
+        <div class="big-number">1 : 2.0</div>
+        <div class="mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="card-bottom"><span>Plan first</span><span>Trade responsibly</span></div>
+      </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+      <div class="section-heading">
+        <p class="eyebrow">START HERE</p>
+        <h2>Practical tools for traders</h2>
+        <p>Simple utilities for common forex calculations. More tools can be added as the site grows.</p>
+      </div>
+      <div class="tool-grid">
+        <article class="tool-card">
+          <div class="tool-icon">↔</div>
+          <h3>Currency Converter</h3>
+          <p>Convert an amount between two currencies using a rate you enter.</p>
+          <form id="converter-form" class="converter-form">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" min="0" step="any" value="100" required>
+            <div class="field-row">
+              <div><label for="from-currency">From</label><select id="from-currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>JPY</option></select></div>
+              <div><label for="to-currency">To</label><select id="to-currency"><option>EUR</option><option>USD</option><option>GBP</option><option>INR</option><option>JPY</option></select></div>
+            </div>
+            <label for="rate">Exchange rate (1 unit of From = ? To)</label>
+            <input id="rate" type="number" min="0" step="any" value="0.92" required>
+            <button class="secondary-button" type="submit">Convert amount</button>
+            <p class="result" id="converter-result" aria-live="polite">100 USD = 92.00 EUR</p>
+          </form>
+        </article>
+        <article class="tool-card">
+          <div class="tool-icon">◎</div>
+          <h3>Position Size Planner</h3>
+          <p>Estimate position size from account balance, risk percentage, and stop-loss distance.</p>
+          <form id="position-form">
+            <label for="balance">Account balance ($)</label>
+            <input id="balance" type="number" min="0" step="any" value="5000" required>
+            <label for="risk">Risk per trade (%)</label>
+            <input id="risk" type="number" min="0" max="100" step="any" value="1" required>
+            <label for="stop-distance">Stop-loss distance (pips)</label>
+            <input id="stop-distance" type="number" min="0.1" step="any" value="25" required>
+            <label for="pip-value">Pip value per lot ($)</label>
+            <input id="pip-value" type="number" min="0.01" step="any" value="10" required>
+            <button class="secondary-button" type="submit">Calculate size</button>
+            <p class="result" id="position-result" aria-live="polite">Estimated size: 0.20 lots</p>
+          </form>
+        </article>
+        <article class="tool-card">
+          <div class="tool-icon">↗</div>
+          <h3>Risk-to-Reward Calculator</h3>
+          <p>Compare your planned stop-loss with your take-profit target.</p>
+          <form id="rr-form">
+            <label for="risk-pips">Potential loss (pips)</label>
+            <input id="risk-pips" type="number" min="0.1" step="any" value="20" required>
+            <label for="reward-pips">Potential profit (pips)</label>
+            <input id="reward-pips" type="number" min="0" step="any" value="40" required>
+            <button class="secondary-button" type="submit">Calculate ratio</button>
+            <p class="result" id="rr-result" aria-live="polite">Risk-to-reward: 1 : 2.00</p>
+          </form>
+        </article>
+      </div>
+      <p class="disclaimer">These tools are for educational planning only. Exchange rates and pip values can vary by provider, instrument, and account currency. This site does not provide investment advice.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div>
+        <p class="eyebrow">ABOUT QUANTSYNAPSE</p>
+        <h2>Useful information, without the clutter.</h2>
+      </div>
+      <p>QuantSynapse is a simple starting point for traders who want to check numbers and plan a trade more deliberately. Use the calculators as estimates and verify figures with your broker before placing an order.</p>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h2>Have a suggestion?</h2>
+      <p>Tell us which trading tool would be useful next.</p>
+      <a class="primary-button" href="mailto:CONTACT_EMAIL_HERE">Contact QuantSynapse <span aria-hidden="true">→</span></a>
+      <p class="small-note">Replace CONTACT_EMAIL_HERE with your actual contact email before publishing.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#home">Quant<span>Synapse</span></a>
+    <p>© <span id="year"></span> QuantSynapse. For educational purposes only.</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
