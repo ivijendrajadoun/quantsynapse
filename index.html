@@ -38,31 +38,45 @@
       <div class="section-heading">
         <p class="eyebrow">START HERE</p>
         <h2>Practical tools for traders</h2>
-        <p>Simple utilities for common forex calculations. More tools can be added as the site grows.</p>
+        <p>Simple utilities for common forex calculations. Live updates as you type.</p>
       </div>
       <div class="tool-grid">
+        
+        <!-- Currency Converter Tool -->
         <article class="tool-card">
           <div class="tool-icon">↔</div>
           <h3>Currency Converter</h3>
           <p>Convert an amount between two currencies using a rate you enter.</p>
-          <form id="converter-form" class="converter-form">
+          <form id="converter-form" class="converter-form" onsubmit="return false;">
             <label for="amount">Amount</label>
             <input id="amount" type="number" min="0" step="any" value="100" required>
-            <div class="field-row">
-              <div><label for="from-currency">From</label><select id="from-currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>JPY</option></select></div>
-              <div><label for="to-currency">To</label><select id="to-currency"><option>EUR</option><option>USD</option><option>GBP</option><option>INR</option><option>JPY</option></select></div>
+            <div class="field-row currency-row">
+              <div>
+                <label for="from-currency">From</label>
+                <select id="from-currency">
+                  <option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>JPY</option>
+                </select>
+              </div>
+              <button type="button" id="swap-currencies" class="swap-button" title="Swap currencies" aria-label="Swap currencies">⇄</button>
+              <div>
+                <label for="to-currency">To</label>
+                <select id="to-currency">
+                  <option selected>EUR</option><option>USD</option><option>GBP</option><option>INR</option><option>JPY</option>
+                </select>
+              </div>
             </div>
             <label for="rate">Exchange rate (1 unit of From = ? To)</label>
             <input id="rate" type="number" min="0" step="any" value="0.92" required>
-            <button class="secondary-button" type="submit">Convert amount</button>
             <p class="result" id="converter-result" aria-live="polite">100 USD = 92.00 EUR</p>
           </form>
         </article>
+
+        <!-- Position Size Planner Tool -->
         <article class="tool-card">
           <div class="tool-icon">◎</div>
           <h3>Position Size Planner</h3>
           <p>Estimate position size from account balance, risk percentage, and stop-loss distance.</p>
-          <form id="position-form">
+          <form id="position-form" onsubmit="return false;">
             <label for="balance">Account balance ($)</label>
             <input id="balance" type="number" min="0" step="any" value="5000" required>
             <label for="risk">Risk per trade (%)</label>
@@ -71,23 +85,24 @@
             <input id="stop-distance" type="number" min="0.1" step="any" value="25" required>
             <label for="pip-value">Pip value per lot ($)</label>
             <input id="pip-value" type="number" min="0.01" step="any" value="10" required>
-            <button class="secondary-button" type="submit">Calculate size</button>
-            <p class="result" id="position-result" aria-live="polite">Estimated size: 0.20 lots</p>
+            <p class="result" id="position-result" aria-live="polite">Risk amount: $50.00 · Estimated size: 0.20 lots</p>
           </form>
         </article>
+
+        <!-- Risk-to-Reward Calculator Tool -->
         <article class="tool-card">
           <div class="tool-icon">↗</div>
           <h3>Risk-to-Reward Calculator</h3>
           <p>Compare your planned stop-loss with your take-profit target.</p>
-          <form id="rr-form">
+          <form id="rr-form" onsubmit="return false;">
             <label for="risk-pips">Potential loss (pips)</label>
             <input id="risk-pips" type="number" min="0.1" step="any" value="20" required>
             <label for="reward-pips">Potential profit (pips)</label>
             <input id="reward-pips" type="number" min="0" step="any" value="40" required>
-            <button class="secondary-button" type="submit">Calculate ratio</button>
             <p class="result" id="rr-result" aria-live="polite">Risk-to-reward: 1 : 2.00</p>
           </form>
         </article>
+
       </div>
       <p class="disclaimer">These tools are for educational planning only. Exchange rates and pip values can vary by provider, instrument, and account currency. This site does not provide investment advice.</p>
     </section>
@@ -104,8 +119,8 @@
       <p class="eyebrow">GET IN TOUCH</p>
       <h2>Have a suggestion?</h2>
       <p>Tell us which trading tool would be useful next.</p>
-      <a class="primary-button" href="mailto:CONTACT_EMAIL_HERE">Contact QuantSynapse <span aria-hidden="true">→</span></a>
-      <p class="small-note">Replace CONTACT_EMAIL_HERE with your actual contact email before publishing.</p>
+      <a class="primary-button" href="mailto:support@quantsynapse.example">Contact QuantSynapse <span aria-hidden="true">→</span></a>
+      <p class="small-note">Update the contact email link before launching live.</p>
     </section>
   </main>
 
