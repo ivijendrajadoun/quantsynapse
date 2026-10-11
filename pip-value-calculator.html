@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Estimate forex pip value using lot size and quote-to-account currency conversion."><meta name="theme-color" content="#012169"><title>Pip Value Calculator | QuantSynapse</title><link rel="stylesheet" href="assets/styles.css"></head><body>
+
+<header class="top"><nav class="nav" aria-label="Main navigation">
+<a class="brand" href="index.html"><span class="logo">Q</span><span>QuantSynapse</span></a>
+<div class="navlinks"><a href="currency-converter.html">Currency Converter</a><a href="position-size-calculator.html">Position Size</a><a href="pip-value-calculator.html">Pip Value</a><a href="trade-risk-planner.html">Trade Planner</a><a href="portfolio-risk-checker.html">Portfolio Risk</a></div>
+</nav></header>
+
+<main><div class="page-intro"><span class="tag">Tool 3 · Pip calculations</span><h1>Forex Pip Value Calculator</h1><p>Estimate the value of a pip for a selected pair and lot size. Supply the quote-currency-to-account-currency conversion rate.</p></div><section class="section card"><div class="formgrid"><div class="field full"><label for="pipPair">Currency pair</label><select id="pipPair"></select></div><div class="field"><label for="pipLots">Position size (lots)</label><input id="pipLots" type="number" min=".001" step=".01" value="1"></div><div class="field"><label for="pipConv">Quote currency to account currency rate</label><input id="pipConv" type="number" min=".000001" step="any" value="1"></div><div class="field full"><label for="pipAccount">Account currency</label><select id="pipAccount"><option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option><option>CHF</option><option>AUD</option><option>CAD</option><option>NZD</option><option>SGD</option><option>INR</option></select></div></div><div class="result"><div class="resultlabel">Estimated pip value</div><div class="bigresult" id="pipResult">$10.00 / pip</div><div class="muted" id="pipExplanation">Calculation explanation</div></div><div class="warning">A pip is usually 0.0001 for non-JPY quote pairs and 0.01 for JPY quote pairs. The supplied conversion rate must be in the correct direction and should be verified.</div></section></main>
+
+<footer class="footer"><div class="footer-inner"><div><strong>QuantSynapse</strong><br>Forex calculations with transparent assumptions.</div><div class="disclaimer">For educational and informational purposes only; not financial advice. Calculated risk is an estimate and does not guarantee a maximum loss. Exchange-rate data may be delayed or unavailable. Confirm prices, contract specifications, fees and margin requirements with your broker.</div><div>© <span data-year></span> QuantSynapse</div></div></footer>
+
+<script src="assets/app.js" defer></script>
+</body></html>

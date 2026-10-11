@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Validate a manually entered currency rate and calculate a conversion."><meta name="theme-color" content="#012169"><title>Rate Validation & Conversion | QuantSynapse</title><link rel="stylesheet" href="assets/styles.css"></head><body>
+
+<header class="top"><nav class="nav" aria-label="Main navigation">
+<a class="brand" href="index.html"><span class="logo">Q</span><span>QuantSynapse</span></a>
+<div class="navlinks"><a href="currency-converter.html">Currency Converter</a><a href="position-size-calculator.html">Position Size</a><a href="pip-value-calculator.html">Pip Value</a><a href="trade-risk-planner.html">Trade Planner</a><a href="portfolio-risk-checker.html">Portfolio Risk</a></div>
+</nav></header>
+
+<main><div class="page-intro"><span class="tag">Tool 5 · Data quality</span><h1>Rate Validation & Conversion</h1><p>Enter a manual rate, validate the input, and calculate a transparent conversion. This page does not claim to independently verify a manual rate against a live market.</p></div><section class="section card"><div class="formgrid"><div class="field"><label for="rateFrom">Source currency</label><select id="rateFrom"></select></div><div class="field"><label for="rateTo">Target currency</label><select id="rateTo"></select></div><div class="field"><label for="rateAmount">Amount</label><input id="rateAmount" type="number" min="0" step="any" value="100"></div><div class="field"><label for="rateValue">Rate (target units per 1 source unit)</label><input id="rateValue" type="number" min="0" step="any" value="1.08"></div><div class="field full"><button class="button secondary" id="validateRateBtn" type="button">Validate manual rate</button></div></div><div class="result"><div class="resultlabel">Manual conversion result</div><div class="bigresult" id="rateResult">108.00 USD</div><div class="muted" id="rateValidationStatus">Manual input · Not independently verified.</div></div><div class="warning">The page checks basic input validity only. To detect a stale or suspicious rate, a production version must compare it against a trusted reference provider and define a transparent tolerance.</div></section></main>
+
+<footer class="footer"><div class="footer-inner"><div><strong>QuantSynapse</strong><br>Forex calculations with transparent assumptions.</div><div class="disclaimer">For educational and informational purposes only; not financial advice. Calculated risk is an estimate and does not guarantee a maximum loss. Exchange-rate data may be delayed or unavailable. Confirm prices, contract specifications, fees and margin requirements with your broker.</div><div>© <span data-year></span> QuantSynapse</div></div></footer>
+
+<script src="assets/app.js" defer></script>
+</body></html>
