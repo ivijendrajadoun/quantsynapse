@@ -22,13 +22,13 @@
       <div class="hero-content">
         <p class="eyebrow">CLEARER THINKING. BETTER PLANNING.</p>
         <h1>Make your next trading decision with <span>more clarity.</span></h1>
-        <p class="intro">Straightforward forex tools to help you understand currency rates, estimate trade size, and plan risk before you trade.</p>
+        <p class="intro">Straightforward forex tools with live exchange rates and precise risk-to-reward analytics before you trade.</p>
         <a class="primary-button" href="#tools">Explore the tools <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-card" aria-label="Example trading risk summary">
         <div class="card-top"><span class="status-dot"></span> TRADE PLAN</div>
         <p class="muted">Example risk-to-reward</p>
-        <div class="big-number">1 : 2.0</div>
+        <div class="big-number">1 : 1.3</div>
         <div class="mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="card-bottom"><span>Plan first</span><span>Trade responsibly</span></div>
       </div>
@@ -38,73 +38,121 @@
       <div class="section-heading">
         <p class="eyebrow">START HERE</p>
         <h2>Practical tools for traders</h2>
-        <p>Simple utilities for common forex calculations. Live updates as you type.</p>
+        <p>Live rate currency conversion and advanced risk analysis calculators.</p>
       </div>
-      <div class="tool-grid">
+
+      <div class="tool-grid-stacked">
         
-        <!-- Currency Converter Tool -->
+        <!-- 1. Currency Converter with Live & Manual Options -->
         <article class="tool-card">
           <div class="tool-icon">↔</div>
           <h3>Currency Converter</h3>
-          <p>Convert an amount between two currencies using a rate you enter.</p>
-          <form id="converter-form" class="converter-form" onsubmit="return false;">
+          <p>Fetch real-time interbank market rates or switch to manual mode.</p>
+          
+          <div class="mode-toggle-row">
+            <span id="rate-status" class="rate-status-badge live">● Live Rate Active</span>
+            <button type="button" id="toggle-manual-rate" class="text-btn">Switch to Manual Rate</button>
+          </div>
+
+          <form id="converter-form" onsubmit="return false;">
             <label for="amount">Amount</label>
             <input id="amount" type="number" min="0" step="any" value="100" required>
+            
             <div class="field-row currency-row">
               <div>
                 <label for="from-currency">From</label>
                 <select id="from-currency">
-                  <option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>JPY</option>
+                  <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="INR">INR</option><option value="JPY">JPY</option>
                 </select>
               </div>
-              <button type="button" id="swap-currencies" class="swap-button" title="Swap currencies" aria-label="Swap currencies">⇄</button>
+              <button type="button" id="swap-currencies" class="swap-btn" title="Swap currencies">⇄</button>
               <div>
                 <label for="to-currency">To</label>
                 <select id="to-currency">
-                  <option selected>EUR</option><option>USD</option><option>GBP</option><option>INR</option><option>JPY</option>
+                  <option value="EUR" selected>EUR</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="INR">INR</option><option value="JPY">JPY</option>
                 </select>
               </div>
             </div>
-            <label for="rate">Exchange rate (1 unit of From = ? To)</label>
+
+            <label for="rate">Exchange Rate</label>
             <input id="rate" type="number" min="0" step="any" value="0.92" required>
-            <p class="result" id="converter-result" aria-live="polite">100 USD = 92.00 EUR</p>
+            
+            <p class="result" id="converter-result" aria-live="polite">Loading exchange rate...</p>
           </form>
         </article>
 
-        <!-- Position Size Planner Tool -->
-        <article class="tool-card">
-          <div class="tool-icon">◎</div>
-          <h3>Position Size Planner</h3>
-          <p>Estimate position size from account balance, risk percentage, and stop-loss distance.</p>
-          <form id="position-form" onsubmit="return false;">
-            <label for="balance">Account balance ($)</label>
-            <input id="balance" type="number" min="0" step="any" value="5000" required>
-            <label for="risk">Risk per trade (%)</label>
-            <input id="risk" type="number" min="0" max="100" step="any" value="1" required>
-            <label for="stop-distance">Stop-loss distance (pips)</label>
-            <input id="stop-distance" type="number" min="0.1" step="any" value="25" required>
-            <label for="pip-value">Pip value per lot ($)</label>
-            <input id="pip-value" type="number" min="0.01" step="any" value="10" required>
-            <p class="result" id="position-result" aria-live="polite">Risk amount: $50.00 · Estimated size: 0.20 lots</p>
-          </form>
-        </article>
-
-        <!-- Risk-to-Reward Calculator Tool -->
-        <article class="tool-card">
+        <!-- 2. Advanced Risk/Reward & Position Calculator (Matching User Reference) -->
+        <article class="tool-card tool-card-wide">
           <div class="tool-icon">↗</div>
-          <h3>Risk-to-Reward Calculator</h3>
-          <p>Compare your planned stop-loss with your take-profit target.</p>
+          <h3>Position & Risk/Reward Calculator</h3>
+          <p>Define your entry, stop loss, and take profit targets to analyze potential risk and win-rate requirements.</p>
+          
           <form id="rr-form" onsubmit="return false;">
-            <label for="risk-pips">Potential loss (pips)</label>
-            <input id="risk-pips" type="number" min="0.1" step="any" value="20" required>
-            <label for="reward-pips">Potential profit (pips)</label>
-            <input id="reward-pips" type="number" min="0" step="any" value="40" required>
-            <p class="result" id="rr-result" aria-live="polite">Risk-to-reward: 1 : 2.00</p>
+            
+            <!-- Position Type Tabs -->
+            <label>Position Type</label>
+            <div class="position-tabs">
+              <button type="button" class="tab-btn active" data-type="long">Long</button>
+              <button type="button" class="tab-btn" data-type="short">Short</button>
+            </div>
+
+            <div class="form-grid-2">
+              <div>
+                <label for="entry-price">Entry Price</label>
+                <input id="entry-price" type="number" step="any" value="150" required>
+              </div>
+              <div>
+                <label for="position-units">Position Size (Units)</label>
+                <input id="position-units" type="number" min="1" step="any" value="100" required>
+              </div>
+              <div>
+                <label id="sl-label" for="stop-loss">Stop Loss Price (below)</label>
+                <input id="stop-loss" type="number" step="any" value="140" required>
+              </div>
+              <div>
+                <label id="tp-label" for="take-profit">Take Profit Price (above)</label>
+                <input id="take-profit" type="number" step="any" value="162.50" required>
+              </div>
+            </div>
+
+            <!-- Risk / Reward Analysis Grid -->
+            <div class="analysis-section">
+              <h4>Risk / Reward Analysis</h4>
+              
+              <div class="analysis-grid">
+                <div class="metric-card highlight">
+                  <span class="metric-title">Risk : Reward</span>
+                  <strong id="res-ratio" class="metric-value">1 : 1.25</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-title">Potential Loss</span>
+                  <strong id="res-loss" class="metric-value loss">-$1,000.00</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-title">Potential Profit</span>
+                  <strong id="res-profit" class="metric-value profit">+$1,250.00</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-title">Risk Per Unit</span>
+                  <strong id="res-risk-unit" class="metric-value">$10.00</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-title">Reward Per Unit</span>
+                  <strong id="res-reward-unit" class="metric-value">$12.50</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-title">Break-Even Win Rate</span>
+                  <strong id="res-breakeven" class="metric-value">44.4%</strong>
+                </div>
+              </div>
+            </div>
+
           </form>
         </article>
 
       </div>
-      <p class="disclaimer">These tools are for educational planning only. Exchange rates and pip values can vary by provider, instrument, and account currency. This site does not provide investment advice.</p>
+
+      <p class="disclaimer">These tools are for educational planning only. Live exchange rates provided by public interbank feeds. Verify figures with your broker before placing trades.</p>
     </section>
 
     <section class="about-section" id="about">
@@ -112,15 +160,15 @@
         <p class="eyebrow">ABOUT QUANTSYNAPSE</p>
         <h2>Useful information, without the clutter.</h2>
       </div>
-      <p>QuantSynapse is a simple starting point for traders who want to check numbers and plan a trade more deliberately. Use the calculators as estimates and verify figures with your broker before placing an order.</p>
+      <p>QuantSynapse is built for traders who want clean metrics, instant live conversions, and transparent trade planning without unnecessary noise.</p>
     </section>
 
     <section class="contact-section" id="contact">
       <p class="eyebrow">GET IN TOUCH</p>
       <h2>Have a suggestion?</h2>
-      <p>Tell us which trading tool would be useful next.</p>
+      <p>Tell us which trading tool or feature you'd like to see next.</p>
       <a class="primary-button" href="mailto:support@quantsynapse.example">Contact QuantSynapse <span aria-hidden="true">→</span></a>
-      <p class="small-note">Update the contact email link before launching live.</p>
+      <p class="small-note">Update contact email before public release.</p>
     </section>
   </main>
 
