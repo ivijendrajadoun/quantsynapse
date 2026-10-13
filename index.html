@@ -1,15 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6896KWRYB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D6896KWRYB');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Simple tools and practical resources for forex traders.">
+  <meta name="description" content="Free Forex trading tools: currency converter, position size calculator, and risk-to-reward analysis for smarter trade planning.">
+  <meta name="theme-color" content="#f5f7fa">
+  <meta name="robots" content="index, follow">
+
   <title>QuantSynapse | Smarter Forex Tools</title>
+
+  <link rel="canonical" href="https://quantsynapse.com/">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header class="site-header">
     <a class="logo" href="#home">Quant<span>Synapse</span></a>
+
     <nav aria-label="Main navigation">
       <a href="#tools">Tools</a>
       <a href="#about">About</a>
@@ -21,138 +38,268 @@
     <section class="hero" id="home">
       <div class="hero-content">
         <p class="eyebrow">CLEARER THINKING. BETTER PLANNING.</p>
+
         <h1>Make your next trading decision with <span>more clarity.</span></h1>
-        <p class="intro">Straightforward forex tools with live exchange rates and precise risk-to-reward analytics before you trade.</p>
-        <a class="primary-button" href="#tools">Explore the tools <span aria-hidden="true">→</span></a>
+
+        <p class="intro">
+          Straightforward Forex tools with currency conversion and risk-to-reward
+          analysis to help you plan before you trade.
+        </p>
+
+        <a class="primary-button" href="#tools">
+          Explore the tools <span aria-hidden="true">→</span>
+        </a>
       </div>
-      <div class="hero-card" aria-label="Example trading risk summary">
-        <div class="card-top"><span class="status-dot"></span> TRADE PLAN</div>
+
+      <div class="hero-card" aria-label="Illustrative trading risk summary">
+        <div class="card-top">
+          <span class="status-dot"></span>
+          TRADE PLAN
+        </div>
+
         <p class="muted">Example risk-to-reward</p>
         <div class="big-number">1 : 1.3</div>
-        <div class="mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="card-bottom"><span>Plan first</span><span>Trade responsibly</span></div>
+
+        <div class="mini-chart" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="card-bottom">
+          <span>Plan first</span>
+          <span>Trade responsibly</span>
+        </div>
       </div>
     </section>
 
     <section class="tools-section" id="tools">
       <div class="section-heading">
         <p class="eyebrow">START HERE</p>
-        <h2>Practical tools for traders</h2>
-        <p>Live rate currency conversion and advanced risk analysis calculators.</p>
+        <h2>Practical tools for Forex traders</h2>
+        <p>
+          Convert currencies and analyze potential trade risk and reward
+          with simple, accessible calculators.
+        </p>
       </div>
 
       <div class="tool-grid-stacked">
-        
-        <!-- 1. Currency Converter with Live & Manual Options -->
+
+        <!-- Currency Converter -->
         <article class="tool-card">
-          <div class="tool-icon">↔</div>
+          <div class="tool-icon" aria-hidden="true">↔</div>
+
           <h3>Currency Converter</h3>
-          <p>Fetch real-time interbank market rates or switch to manual mode.</p>
-          
+          <p>
+            Convert between supported currencies using fetched exchange rates
+            or enter a rate manually.
+          </p>
+
           <div class="mode-toggle-row">
-            <span id="rate-status" class="rate-status-badge live">● Live Rate Active</span>
-            <button type="button" id="toggle-manual-rate" class="text-btn">Switch to Manual Rate</button>
+            <span id="rate-status" class="rate-status-badge live">
+              Rate status pending
+            </span>
+
+            <button type="button" id="toggle-manual-rate" class="text-btn">
+              Switch to Manual Rate
+            </button>
           </div>
 
           <form id="converter-form" onsubmit="return false;">
             <label for="amount">Amount</label>
-            <input id="amount" type="number" min="0" step="any" value="100" required>
-            
+            <input
+              id="amount"
+              name="amount"
+              type="number"
+              min="0"
+              step="any"
+              value="100"
+              required
+            >
+
             <div class="field-row currency-row">
               <div>
                 <label for="from-currency">From</label>
-                <select id="from-currency">
-                  <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="INR">INR</option><option value="JPY">JPY</option>
+                <select id="from-currency" name="from-currency">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                  <option value="INR">INR</option>
+                  <option value="JPY">JPY</option>
                 </select>
               </div>
-              <button type="button" id="swap-currencies" class="swap-btn" title="Swap currencies">⇄</button>
+
+              <button
+                type="button"
+                id="swap-currencies"
+                class="swap-btn"
+                title="Swap currencies"
+                aria-label="Swap currencies"
+              >⇄</button>
+
               <div>
                 <label for="to-currency">To</label>
-                <select id="to-currency">
-                  <option value="EUR" selected>EUR</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="INR">INR</option><option value="JPY">JPY</option>
+                <select id="to-currency" name="to-currency">
+                  <option value="EUR" selected>EUR</option>
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                  <option value="INR">INR</option>
+                  <option value="JPY">JPY</option>
                 </select>
               </div>
             </div>
 
             <label for="rate">Exchange Rate</label>
-            <input id="rate" type="number" min="0" step="any" value="0.92" required>
-            
-            <p class="result" id="converter-result" aria-live="polite">Loading exchange rate...</p>
+            <input
+              id="rate"
+              name="rate"
+              type="number"
+              min="0"
+              step="any"
+              value="0.92"
+              required
+            >
+
+            <p class="result" id="converter-result" aria-live="polite">
+              Loading exchange rate...
+            </p>
           </form>
         </article>
 
-        <!-- 2. Advanced Risk/Reward & Position Calculator (Matching User Reference) -->
+        <!-- Position and Risk/Reward Calculator -->
         <article class="tool-card tool-card-wide">
-          <div class="tool-icon">↗</div>
-          <h3>Position & Risk/Reward Calculator</h3>
-          <p>Define your entry, stop loss, and take profit targets to analyze potential risk and win-rate requirements.</p>
-          
+          <div class="tool-icon" aria-hidden="true">↗</div>
+
+          <h3>Position &amp; Risk/Reward Calculator</h3>
+
+          <p>
+            Enter your entry, stop-loss, take-profit, and position size
+            to estimate potential gains, losses, and break-even win rate.
+          </p>
+
           <form id="rr-form" onsubmit="return false;">
-            
-            <!-- Position Type Tabs -->
+
             <label>Position Type</label>
+
             <div class="position-tabs">
-              <button type="button" class="tab-btn active" data-type="long">Long</button>
-              <button type="button" class="tab-btn" data-type="short">Short</button>
+              <button
+                type="button"
+                class="tab-btn active"
+                data-type="long"
+                aria-pressed="true"
+              >Long</button>
+
+              <button
+                type="button"
+                class="tab-btn"
+                data-type="short"
+                aria-pressed="false"
+              >Short</button>
             </div>
 
             <div class="form-grid-2">
               <div>
                 <label for="entry-price">Entry Price</label>
-                <input id="entry-price" type="number" step="any" value="150" required>
+                <input
+                  id="entry-price"
+                  name="entry-price"
+                  type="number"
+                  min="0"
+                  step="any"
+                  value="150"
+                  required
+                >
               </div>
+
               <div>
                 <label for="position-units">Position Size (Units)</label>
-                <input id="position-units" type="number" min="1" step="any" value="100" required>
+                <input
+                  id="position-units"
+                  name="position-units"
+                  type="number"
+                  min="1"
+                  step="any"
+                  value="100"
+                  required
+                >
               </div>
+
               <div>
-                <label id="sl-label" for="stop-loss">Stop Loss Price (below)</label>
-                <input id="stop-loss" type="number" step="any" value="140" required>
+                <label id="sl-label" for="stop-loss">
+                  Stop Loss Price (below)
+                </label>
+                <input
+                  id="stop-loss"
+                  name="stop-loss"
+                  type="number"
+                  min="0"
+                  step="any"
+                  value="140"
+                  required
+                >
               </div>
+
               <div>
-                <label id="tp-label" for="take-profit">Take Profit Price (above)</label>
-                <input id="take-profit" type="number" step="any" value="162.50" required>
+                <label id="tp-label" for="take-profit">
+                  Take Profit Price (above)
+                </label>
+                <input
+                  id="take-profit"
+                  name="take-profit"
+                  type="number"
+                  min="0"
+                  step="any"
+                  value="162.50"
+                  required
+                >
               </div>
             </div>
 
-            <!-- Risk / Reward Analysis Grid -->
             <div class="analysis-section">
               <h4>Risk / Reward Analysis</h4>
-              
+
               <div class="analysis-grid">
                 <div class="metric-card highlight">
                   <span class="metric-title">Risk : Reward</span>
                   <strong id="res-ratio" class="metric-value">1 : 1.25</strong>
                 </div>
+
                 <div class="metric-card">
                   <span class="metric-title">Potential Loss</span>
                   <strong id="res-loss" class="metric-value loss">-$1,000.00</strong>
                 </div>
+
                 <div class="metric-card">
                   <span class="metric-title">Potential Profit</span>
                   <strong id="res-profit" class="metric-value profit">+$1,250.00</strong>
                 </div>
+
                 <div class="metric-card">
                   <span class="metric-title">Risk Per Unit</span>
                   <strong id="res-risk-unit" class="metric-value">$10.00</strong>
                 </div>
+
                 <div class="metric-card">
                   <span class="metric-title">Reward Per Unit</span>
                   <strong id="res-reward-unit" class="metric-value">$12.50</strong>
                 </div>
+
                 <div class="metric-card">
                   <span class="metric-title">Break-Even Win Rate</span>
                   <strong id="res-breakeven" class="metric-value">44.4%</strong>
                 </div>
               </div>
             </div>
-
           </form>
         </article>
-
       </div>
 
-      <p class="disclaimer">These tools are for educational planning only. Live exchange rates provided by public interbank feeds. Verify figures with your broker before placing trades.</p>
+      <p class="disclaimer">
+        These tools are for educational planning only. Exchange rates may be
+        delayed or unavailable. Calculations do not include all broker fees,
+        spreads, slippage, or financing costs. Verify figures with your broker
+        before placing trades.
+      </p>
     </section>
 
     <section class="about-section" id="about">
@@ -160,23 +307,39 @@
         <p class="eyebrow">ABOUT QUANTSYNAPSE</p>
         <h2>Useful information, without the clutter.</h2>
       </div>
-      <p>QuantSynapse is built for traders who want clean metrics, instant live conversions, and transparent trade planning without unnecessary noise.</p>
+
+      <p>
+        QuantSynapse provides accessible Forex utilities for currency
+        conversion and trade planning. Our aim is to make common calculations
+        easier to understand without promising trading results.
+      </p>
     </section>
 
     <section class="contact-section" id="contact">
       <p class="eyebrow">GET IN TOUCH</p>
       <h2>Have a suggestion?</h2>
-      <p>Tell us which trading tool or feature you'd like to see next.</p>
-      <a class="primary-button" href="mailto:support@quantsynapse.example">Contact QuantSynapse <span aria-hidden="true">→</span></a>
-      <p class="small-note">Update contact email before public release.</p>
+
+      <p>
+        Tell us which trading tool or feature you'd like to see next.
+      </p>
+
+      <!-- Replace this address with your real support email before launch. -->
+      <a class="primary-button" href="mailto:support@quantsynapse.com">
+        Contact QuantSynapse <span aria-hidden="true">→</span>
+      </a>
     </section>
   </main>
 
   <footer>
     <a class="logo" href="#home">Quant<span>Synapse</span></a>
-    <p>© <span id="year"></span> QuantSynapse. For educational purposes only.</p>
+
+    <p>
+      © <span id="year"></span> QuantSynapse. For educational purposes only.
+    </p>
+
     <a href="#home">Back to top ↑</a>
   </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
